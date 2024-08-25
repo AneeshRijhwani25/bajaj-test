@@ -1,11 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors'); // Import the cors package
 const bfhlRoute = require('./routes/bfhl'); 
 
 const app = express();
 const port = 5000;
 
 // Middleware
+app.use(cors()); // Enable CORS for all origins
 app.use(bodyParser.json());
 
 // Routes
@@ -20,4 +22,3 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
-
